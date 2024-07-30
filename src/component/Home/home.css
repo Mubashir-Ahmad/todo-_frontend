@@ -1,0 +1,209 @@
+*{ box-sizing: border-box; }
+body{ margin: 0; padding: 0; background-color: #eee;}
+h2{ text-align: center; }
+ul{ margin: 0; padding: 0; list-style: none; }
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  height: 100px;
+  gap: 30px;
+  background-color: #64B5F6;
+  h1{
+    margin: 0;
+    padding: 0;
+    font-size: 3rem;
+    text-transform: uppercase;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: -1px 2px 8px rgba(0,0,0,.5);
+  }
+}
+.logoutbtn{
+  border: none;
+  outline: none;
+  background-color: white;
+  color: black;
+  width: 70px;
+  height: 30px;
+  border-radius: 8px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-style: italic;
+}
+.container{
+  position: relative;
+  width: 100%;
+  height: auto;
+  padding: 20px 70px;
+  display: grid;
+  grid-template-columns: 0fr 1fr;
+  grid-template-areas: 
+    "add add"
+    "unc cmp";
+  grid-gap: 20px;
+  justify-content: center;
+  .input-field{
+    position: relative;
+    width: 250px;
+    height: 50px;
+    background-color: #90CAF9;
+    border-radius: 10px;
+    justify-self: center;
+    grid-area: add;
+    input[type="text"]{
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      width: calc(100% - 40px);
+      height: 25px;
+      border: none;
+      outline: none;
+      padding: 0 10px;
+      background-color: #E3F2FD;
+    }
+    .add{
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      font-size: 16px;
+      transform: translateY(-50%);
+      width: 25px;
+      height: 25px;
+      text-align: center;
+      line-height: 25px;
+      background-color: #fff;
+      border-radius: 50px;
+      cursor: pointer;
+    }
+  }
+  .uncomp-tasks, .comp-tasks{
+    .items{
+      width: 100%;
+      min-height: 100px;
+      border-radius: 20px;
+      padding: 20px;
+      .item{
+        position: relative;
+        width: 100%;
+        height: 35px;
+        line-height: 35px;
+        padding: 0 20px;
+        margin-bottom: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        span{
+          font-size: 14px;
+          font-family: sans-serif;
+        }
+        .trash{
+          position: absolute;
+          top: 50%;
+          right: 40px;
+          transform: translateY(-50%);
+          cursor: pointer;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+  .comp-tasks{
+    grid-area: cmp;
+  }
+  .uncomp-tasks{
+    grid-area: unc;
+  }
+  .comp-tasks .items .item{
+    .uncheck{
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      &:hover::before{
+        content: "\f05d";
+        color: #004D40;
+      }
+    }
+    .trash:hover::before{
+      color: #C62828;
+    }
+  }
+  .uncomp-tasks .items .item{
+    .check{
+      position: absolute;
+      top: 50%;
+      right: 10px;
+      transform: translateY(-50%);
+      cursor: pointer;
+      font-size: 18px;
+      &:hover::before{
+        content: "\f058";
+        color: #004D40;
+      }
+    }
+    .trash:hover::before{
+      color: #C62828;
+    }
+  }
+}
+.input-field{
+  position: relative;
+  width: 250px;
+  /* margin: 20px 0px; */
+  height: 50px;
+  background-color: #90CAF9;
+  border-radius: 10px;
+  justify-self: center;
+  grid-area: add;
+}
+ .as{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: calc(100% - 40px);
+    height: 25px;
+    border: none;
+    outline: none;
+    padding: 0 10px;
+    background-color: #E3F2FD;
+  }
+  .add{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    font-size: 16px;
+    transform: translateY(-50%);
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    line-height: 25px;
+    background-color: #fff;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+.input_boxes {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 20px 0px;
+  /* position: absolute;
+  top: 100px; */
+}
+@media only screen and (max-width: 650px){
+  .container{
+    grid-template-columns: 1fr;
+    grid-template-areas: 
+      "add"
+      "unc"
+      "cmp"
+  }
+  .header h1{
+    font-size: 14px;
+  }
+}
